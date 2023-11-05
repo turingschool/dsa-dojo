@@ -2,7 +2,7 @@
 
 ## A Basic Stack
 
-You should implement a Stack that offers the following functions:
+You should implement a `Stack` that offers the following functions:
 
 * `push` adds an element to the top of the stack
 * `pop` removes and returns the top element of the stack
@@ -15,15 +15,15 @@ Beyond those most essentials, implement the following:
 
 ### Implementation Challenge
 
-Your implementation language might already have a Stack data structure or Array functions that do all the hard work for you.
+Your implementation language might already have a `Stack` data structure or `Array` functions that do all the hard work for you.
 
-But what if, instead of using those, you implemented your Stack using a LinkedList?
+But what if, instead of using those, you implemented your `Stack` using a `LinkedList`?
 
-It would be wise to implement once the easy way to make sure you understand everything, then reimplement using the LinkedList.
+It would be wise to implement once the easy way to make sure you understand everything, then reimplement using the `LinkedList`.
 
 ## Stack in Practice
 
-Now that you understand how a Stack works we can apply it to a common technical challenge, matching elements.
+Now that you understand how a `Stack` works we can apply it to a common technical challenge, matching elements.
 
 ### Well-Formed Strings, Round 1
 
