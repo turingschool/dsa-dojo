@@ -27,12 +27,20 @@ class PriorityQueue
   end
 
   def queue_wait(plane)
-    ahead = @lanes.slice_after { |lane, queue| queue.find(plane) }.first.reverse
-    lane, *rest = ahead.map(&:last)
-    within_lane_count = lane.queue_wait(plane)
-    priority_ahead_count = rest.map(&:count).sum
+    line_count = 0
 
-    within_lane_count + priority_ahead_count
+    for lane, queue in @lanes
+      position = queue.find_position(plane)
+
+      if !position.nil?
+        line_count += position
+        break
+      else
+        line_count += queue.count
+      end
+    end
+
+    line_count
   end
 end
 

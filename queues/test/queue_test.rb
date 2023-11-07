@@ -49,4 +49,18 @@ class StackTest < Minitest::Test
     queue.dequeue
     assert_equal(true, queue.empty)
   end
+
+  def test_find_position
+    queue = Queue.new
+    "abcde".chars.each { |c| queue.enqueue(c) }
+    position = queue.find_position("a")
+    assert_equal(0, position)
+  end
+
+  def test_find_position_nil
+    queue = Queue.new
+    "abcde".chars.each { |c| queue.enqueue(c) }
+    position = queue.find_position("f")
+    assert_equal(nil, position)
+  end
 end

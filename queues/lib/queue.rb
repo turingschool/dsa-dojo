@@ -40,11 +40,22 @@ class Queue
   end
 
   def find(node)
-    current = @head
+    current = @head.right
     while current != nil && current.val != node
       current = current.right
     end
     current
+  end
+
+  def find_position(node)
+    current = @head.right
+    count = 0
+    while current != nil && current.val != node
+      current = current.right
+      count += 1
+    end
+    return nil if current.nil?
+    count
   end
 
   def to_s
