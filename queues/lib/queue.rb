@@ -7,13 +7,17 @@ class Queue
     @count = 0
   end
 
-  def enqueue(x)
+  def add(node)
     @count += 1
-    node = Node.new(x)
     node.right = @tail
     left = @tail.left
     left.right = node
     @tail.left = node
+  end
+
+  def enqueue(x)
+    node = Node.new(x)
+    add(node)
   end
 
   def dequeue
