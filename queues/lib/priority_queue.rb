@@ -21,6 +21,19 @@ class PriorityQueue
   def status
     @lanes.map { |lane, queue| [lane, queue.count] }.to_h
   end
+
+  def total_count
+    @lanes.values.map(&:count).sum
+  end
+
+  def queue_wait(plane)
+    ahead = @lanes.slice_after { |lane, queue| queue.find(plane) }.first.reverse
+    lane, *rest = ahead.map(&:last)
+    within_lane_count = lane.queue_wait(plane)
+    priority_ahead_count = rest.map(&:count).sum
+
+    within_lane_count + priority_ahead_count
+  end
 end
 
 class Plane
@@ -30,5 +43,9 @@ class Plane
     @name = name
     @expected_departure = expected_departure
     @expected_landing = expected_landing
+  end
+
+  def to_s
+    @name
   end
 end
